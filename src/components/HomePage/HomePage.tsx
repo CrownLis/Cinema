@@ -3,7 +3,7 @@ import Carousel from "./Carousel";
 import CarouselSmall from "./CarouselSmall";
 import CarouselSmall2 from "./CarouselSmall2";
 
-const Main:FC = () => {
+const HomePage:FC = () => {
     return (
         <div>
             <Carousel/>
@@ -13,4 +13,4 @@ const Main:FC = () => {
     )
 }
 
-export default Main
+export default HomePage

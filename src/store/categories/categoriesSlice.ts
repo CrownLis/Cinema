@@ -16,8 +16,8 @@ const initialState: ICategoriesState = {
 };
 
 
-const categoeisSlice = createSlice({
-  name: 'categoeisSlice',
+const categoriesSlice = createSlice({
+  name: 'categoriesSlice',
   initialState,
   reducers: {
 
@@ -37,4 +37,4 @@ const categoeisSlice = createSlice({
   }
 });
 
-export default categoeisSlice.reducer
+export default categoriesSlice.reducer

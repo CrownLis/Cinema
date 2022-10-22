@@ -1,16 +1,20 @@
-const path = require('path')
-const resolvePath = p => path.resolve(__dirname, p)
-const { createWebpackDevConfig } = require("@craco/craco");
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const path = require("path");
+const resolvePath = (p) => path.resolve(__dirname, p);
 
-const cracoConfig = require("./craco.config.js");
-const webpackConfig = createWebpackDevConfig(cracoConfig);
-
-module.exports = webpackConfig;
 module.exports = {
-  entry: './src/index.tsx',
+  entry: resolvePath("./src/index.tsx"),
   output: {
-    path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js'
+    clean:true,
+    path: resolvePath("./dist"),
+    filename: "bundle.js",
+  },
+  plugins: [new HtmlWebpackPlugin({ template: './src/index.html' })],
+  resolve: {
+    extensions: [".tsx", ".ts", ".jsx", ".js", ".css", ".scss"],
+    alias: {
+      "@": resolvePath("src/"),
+    },
   },
   module: {
     rules: [
@@ -18,7 +22,7 @@ module.exports = {
         test: /\.(js|ts)x?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
         },
       },
       {
@@ -53,33 +57,26 @@ module.exports = {
       },
       {
         test: /\.svg$/i,
-        type: 'asset',
+        type: "asset",
         resourceQuery: /url/, // *.svg?url
       },
       {
         test: /\.svg$/i,
         issuer: /\.[jt]sx?$/,
         resourceQuery: { not: [/url/] }, // exclude react component if *.svg?url
-        use: ['@svgr/webpack'],
+        use: ["@svgr/webpack"],
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        loader: 'file-loader',
-        options: {
-          name: '[path][name].[ext]',
-        },
+        test: /.(png|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
+      {
+        test: /.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
       },
     ],
   },
-  resolve: {
-    extensions: ['.tsx', '.ts', '.jsx', '.js', '.css', '.scss'],
-    alias: {
-      '@': resolvePath('src/'),
-    },
-  },
   devServer: {
-    historyApiFallback:true,
-    static:
-      path.resolve(__dirname, './dist')
-  }
-}
+    historyApiFallback: true,
+  },
+};

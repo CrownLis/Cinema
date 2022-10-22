@@ -4,11 +4,12 @@ import { Navigation, A11y, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/lazy'
 import 'swiper/css/autoplay'
-import { getPremiersData, getPremierLoading } from '@/../store/premiers/selectors'
-import style from './CarouselSmall.module.scss'
-import { useAppSelector } from "@/../store/hooks";
+import { getPremiersData, getPremierLoading } from '../../../store/premiers/selectors'
+import { useAppSelector } from "../../../store/hooks";
 
-const CarouselSmall: FC = () => {
+import style from './CarouselSmall2.module.scss'
+
+const CarouselSmall2: FC = () => {
 
     const isLoading = useAppSelector(getPremierLoading)
     const films = useAppSelector(getPremiersData)
@@ -38,4 +39,4 @@ const CarouselSmall: FC = () => {
     )
 }
 
-export default CarouselSmall
+export default CarouselSmall2

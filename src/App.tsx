@@ -1,32 +1,37 @@
 import React, { FC, useEffect } from 'react';
 import { Route, Routes } from 'react-router-dom';
-import Header from './components/Header';
-import {useAppDispatch} from './../store/hooks'
-import { getPremiers } from './../store/premiers/asyncAction';
-import Body from './components/Body';
-import { getCategories } from './../store/categories/asyncAction';
-import Sidebar from './components/Sidebar';
+import { useAppDispatch } from './store/hooks';
+import { getPremiers } from './store/premiers/asyncAction';
+import { getCategories } from './store/categories/asyncAction';
+import Layouts from './layouts/Layouts';
+import HomePage from './components/HomePage';
+import Category from './components/CategoryPage';
+
 
 
 export const App: FC = () => {
 
-const dispatch = useAppDispatch()
+  const dispatch = useAppDispatch()
 
-useEffect(() => {
-  dispatch(getPremiers([2022,'APRIL']))
-  dispatch(getCategories())
-})
+  useEffect(() => {
+    dispatch(getPremiers([2022, 'APRIL']))
+    dispatch(getCategories())
+  })
 
-return (
-  <div>
-      <Header />
-      <Body/>
-      <Sidebar/>
-      <Routes>
-        <Route path="/profile" element={''} />
-      </Routes>
-  </div>
-)
+  return (
+    <Routes>
+      <Route path="/" element={<Layouts/>}>
+      <Route index
+          element={<HomePage />}
+        />
+        
+        <Route
+          path='category'
+          element={<Category />}
+        />
+        </Route>
+    </Routes>
+  )
 }
 
 export default App

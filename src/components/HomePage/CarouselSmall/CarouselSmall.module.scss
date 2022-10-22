@@ -10,6 +10,9 @@
         font-family: 'Open-Sans';
         font-weight: 700;
     }
+    :global(.swiper-slide).smallSlide {
+        transform: scale(1);
+    }
 }
 
 // .carousel::after {
@@ -26,8 +29,4 @@
     max-height: 200px;
     max-width: 160px;
     width: 100%
-}
-
-:global(.swiper-slide).smallSlide {
-    transform: scale(1);
 }

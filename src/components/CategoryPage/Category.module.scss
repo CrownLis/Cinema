@@ -1,0 +1,19 @@
+.category {
+    background-color: black;
+
+    .category__wrapper {
+        display: flex;
+        flex-direction: row;
+        background-color: gray;
+
+        .wrapper__category {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .wrapper__list {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

@@ -1,0 +1,73 @@
+.carousel {
+    position: relative;
+    padding: 40px 0;
+    background-color: rgb(29, 29, 29);
+}
+
+.carousel::after {
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-image: url(@/assets/light3.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center -105px;
+    z-index: 0;
+    animation: k-light 10s ease-in-out infinite;
+}
+
+.carousel::before {
+    content:'';
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    background-image: url(@/assets/glow.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center -65px;
+    z-index: 1;
+}
+
+.poster {
+    max-height: 500px;
+}
+
+:global(.swiper-slide) {
+   transform: scale(0.5);
+}
+
+:global(.swiper-slide-next),:global(.swiper-slide-prev) {
+    transform: scale(0.7);
+}
+
+:global(.swiper-slide-active) {
+    transform: scale(1);
+}
+
+// ANIMATION // 
+
+@keyframes k-light {
+    0% {
+        opacity: 0.2;
+    }
+    20% {
+        opacity: 0.4;
+    }
+    40% {
+        opacity: 0.6;
+    }
+    60% {
+        opacity: 0.6;
+    }
+    80% {
+        opacity: 0.4;
+    }
+    100% {
+        opacity: 0.2;
+    }
+}

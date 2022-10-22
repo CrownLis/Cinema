@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import { NavLink } from 'react-router-dom'
-import Logo from '@/assets/Logo.svg';
-import Search from '@/assets/search.svg'
-import Bell from '@/assets/bell.svg'
+import Logo from './../../assets/Logo.svg';
+import Search from './../../assets/search.svg'
+import Bell from './../../assets/bell.svg'
 import { useMediaQuery } from 'usehooks-ts'
 
 import style from './Header.module.scss'

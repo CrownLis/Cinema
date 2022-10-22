@@ -4,9 +4,9 @@ import { Navigation, A11y, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/lazy'
 import 'swiper/css/autoplay'
-import { getPremiersData, getPremierLoading } from '@/../store/premiers/selectors'
+import { getPremiersData, getPremierLoading } from '../../../store/premiers/selectors'
 import style from './Carousel.module.scss'
-import { useAppSelector } from "@/../store/hooks";
+import { useAppSelector } from "../../../store/hooks";
 
 const Carousel: FC = () => {
 

@@ -1,5 +1,5 @@
-import { fetchCategories } from '../../API/Cinema';
-import { ICategoriesList } from '../../src/types/types';
+import { fetchCategories } from '../../api/Cinema';
+import { ICategoriesList } from './../../types/types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 export const getCategories = createAsyncThunk<
