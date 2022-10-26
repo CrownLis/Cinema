@@ -7,3 +7,11 @@ export const getFilteredListData = (state: RootState) => {
 export const getFilteredListLoading = (state: RootState) => {
   return state.rootReducer.filteredList.loading
 };
+
+export const getFilteredListPage = (state:RootState) => {
+  return state.rootReducer.filteredList.currentPage
+}
+
+export const getFilterParameters = (state:RootState) => {
+  return state.rootReducer.filteredList.filterParameters
+}

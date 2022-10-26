@@ -1,4 +1,4 @@
-import { fetchCategories } from '../../api/Cinema';
+import { fetchCategories } from '../../api/cinemaApi';
 import { ICategoriesList } from './../../types/types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 

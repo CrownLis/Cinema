@@ -1,4 +1,4 @@
-import { fetchPremiers } from '../../api/Cinema';
+import { fetchPremiers } from '../../api/cinemaApi';
 import { IPremierList } from './../../types/types';
 import { createAsyncThunk } from '@reduxjs/toolkit';
 

@@ -23,10 +23,30 @@ export interface IFilm {
     posterUrlPreview?: string
 }
 
+export interface ITopFilm {
+    filmID:number,
+    nameRu:string,
+    nameEn:string | null,
+    year:string,
+    filmLength: number | null | string,
+    countries: ICountry[],
+    genres:IGenre[],
+    rating:string,
+    ratingVoteCount:number,
+    posterUrl:string,
+    posterUrlPreview:string,
+    ratingChange:null
+}
+
+export interface ITopFilmList {
+    pagesCount:number,
+    films:ITopFilm[]
+}
+
 export interface IFilmList {
     total: number,
     totalPages: number,
-    list: IFilm[]
+    items: IFilm[]
 }
 
 export interface IPremier {
@@ -51,16 +71,16 @@ export interface IPremier {
 }
 
 export interface IGenre {
-    id: number
     genre: string
+    id?: number
 }
 
-export interface ICountries {
-    id: number
+export interface ICountry {
     country: string
+    id?: number
 }
 
 export interface ICategoriesList {
     genres: IGenre[]
-    countries: ICountries[]
+    countries: ICountry[]
 }

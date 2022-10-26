@@ -3,10 +3,10 @@ import { createRoot } from "react-dom/client";
 import App from "./App";
 import { Provider } from 'react-redux';
 import store from "./store/store";
-
-import './normalize.css'
-import './fonts.css'
 import { BrowserRouter } from "react-router-dom";
+
+import './assets/styles/common.scss'
+
 
 
 const rootElement = document.getElementById("root") as HTMLElement

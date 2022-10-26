@@ -18,18 +18,18 @@ const Header: FC = () => {
             <nav className={style.header__navbar}>
                 <div className={style.navbar__links}>
                     <div className={style.links__logo}>
-                        <Logo />
+                        <NavLink to={'/'}> <Logo /></NavLink>
                     </div>
                     <ul className={style.links__text}>
                         <li>
-                            <NavLink to={'#'}>Start</NavLink>
+                            <NavLink to={'/category'}>Start</NavLink>
                         </li>
                         <li>
                             <NavLink to={'#'}>Shows</NavLink>
                         </li>
                         <li>
                             <NavLink to={'#'}>Movies</NavLink>
-                        </li>   
+                        </li>
                         <li>
                             <NavLink to={'#'}>New</NavLink>
                         </li>

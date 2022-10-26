@@ -1,81 +1,117 @@
 import React, { FC, useEffect, useRef, useState } from "react";
 import Logo from './../../assets/Logo.svg'
 import { useAppDispatch, useAppSelector } from "./../../store/hooks";
-import { getCategories } from "@/store/categories/asyncAction";
 import Arrow from './../../assets/arrow.png'
 import { getCategoriesData } from '@/store/categories/selectors'
+import { Form, Field } from 'react-final-form'
 
 import style from './Sidebar.module.scss'
-import { NavLink } from "react-router-dom";
 import { getFilteredList } from "@/store/filteredList/asyncAction";
+import { setCurrentPage, setFilterParameters } from "@/store/filteredList/filteredListSlice";
 
 const Sidebar: FC = () => {
 
     const dispatch = useAppDispatch()
     const category = useAppSelector(getCategoriesData)
+    const [isOpen, setIsOpen] = useState(`${style.sidebar__close}`)
+    const [openSidebar, setOpenSidebar] = useState(false)
 
-    const [isOpen, setIsOpen] = useState(false)
-    const [rotate, setRotate] = useState(-90)
-    const [left, setLeft] = useState(-210)
-    const [border, setBorder] = useState('0 0 15px 15px')
-    const [Categories, setCategories] = useState(0)
-    const [categoriesOpen, setCategoriesOpen] = useState(false)
-    const [filter, setFilter] = useState('')
-
-    const Cr = (countries:number,genres:number,order:string,type:string,ratingFrom:number,ratingTo:number,yearFrom:number,yearTo:number,page:number) => {
-        dispatch(getFilteredList({countries,genres,order,type,ratingFrom,ratingTo,yearFrom,yearTo,page}))
+    const onSubmit = async (value: { countries: number,genres:number, ratingFrom: number, ratingTo: number, yearFrom: number, yearTo: number }) => {
+        dispatch(setCurrentPage(1))
+        dispatch(setFilterParameters(value))
+        dispatch(getFilteredList(value))
     }
 
     const sidebarOpen = () => {
-        if (isOpen) {
-            setRotate(-90)
-            setLeft(-210)
-            setCategories(0)
-            setCategoriesOpen(false)
-            setBorder('0 0 15px 15px')
+        if (openSidebar) {
+            setIsOpen(`${style.sidebar__close}`)
+            setOpenSidebar(!openSidebar)
         } else {
-            setRotate(90)
-            setLeft(0)
-            setBorder('15px 15px 0 0')
+            setIsOpen(``)
+            setOpenSidebar(!openSidebar)
         }
-        setIsOpen(!isOpen)
     }
-
-    const sideOpen = (a: string | null) => {
-        if (a) {
-            setFilter(a)
-        }
-        if (categoriesOpen) {
-            setCategories(0)
-        } else {
-            setCategories(-180)
-        }
-        setCategoriesOpen(!categoriesOpen)
-    }
-
-
-    useEffect(() => {
-        dispatch(getCategories)
-    })
 
     return (
-        <div className={style.sidebar} style={{ left: left }}>
+        <div className={`${style.sidebar} ${isOpen}`}>
             <div className={style.sidebar__wrapper}>
                 <Logo />
-                <span onClick={e => sideOpen(e.currentTarget.textContent)}>Жанр</span>
-                <span onClick={e => sideOpen(e.currentTarget.textContent)}>Страна</span>
-                <div className={style.sidebar__categories} style={{ right: Categories }}>
-                    <div className={style.categories__wrapper}>
-                        {filter === 'Жанр' ? category?.genres.map(genre => <NavLink to='/category' onClick={e => Cr(genre.id,'RATING','ALL',0,10,1000,3000,1)}> {genre.genre}</NavLink>) :
-                            category?.countries.map(genre => <NavLink to='/category' onClick={e => Cr(genre.id,'RATING','ALL',0,10,1000,3000,1)}>{genre.country}</NavLink>)
-                        }
-                        <button onClick={sidebarOpen} className={style.sidebar__button} style={{ rotate: rotate + 'deg', borderRadius: border }}>
-                            <img src={Arrow} />
-                        </button>
-                    </div>
-                </div>
+                <Form
+                    onSubmit={onSubmit}
+                    render={({ handleSubmit, form, submitting, pristine }) => (
+                        <form onSubmit={handleSubmit} className={style.sidebar__form}>
+                            <div className={style.form__country}>
+                                <label>Страна</label>
+                                <Field
+                                    name="countries"
+                                    component="select"
+                                >
+                                    <option>
+
+                                    </option>
+                                    {category?.countries.map(country => <option  value={country.id}>{country.country}</option>)}
+                                </Field>
+                            </div>
+                            <div className={style.form__genre}>
+                                <label>Жанр</label>
+                                <Field
+                                    name="genres"
+                                    component="select"
+                                >
+                                    <option>
+
+                                    </option>
+                                    {category?.genres.map(genre => <option value={genre.id}>{genre.genre}</option>)}
+                                </Field>
+                            </div>
+                            <div className={style.form__sort}>
+                                <label>Сортировка</label>
+                                <Field
+                                    name="sorted"
+                                    component="select"
+                                >
+                                    <option>
+                                        Рейтинг
+                                    </option>
+                                    <option>
+                                        Количество оценок
+                                    </option>
+                                    <option>
+                                        Год
+                                    </option>
+                                </Field>
+                            </div>
+                            <div className={style.form__year}>
+                                <label>Год</label><br />
+                                <Field name="yearFrom" component="input" defaultValue={1000} /><span>-</span>
+                                <Field name="yearTo" component="input" defaultValue={3000} />
+                            </div>
+                            <div className={style.form__rating}>
+                                <label>Рейтинг</label><br />
+                                <Field name="ratingFrom" component="input" defaultValue={0} /><span>-</span>
+                                <Field name="ratingTo" component="input" defaultValue={10} />
+                            </div>
+                            <div className={style.form__button}>
+                                <button type="submit" disabled={submitting || pristine}>
+                                    Submit
+                                </button>
+                                <button
+                                    type="button"
+
+                                    disabled={submitting || pristine}
+                                >
+                                    Reset
+                                </button>
+                            </div>
+                        </form>
+                    )}
+                />
+                <button onClick={sidebarOpen} className={style.sidebar__button}>
+                    <img src={Arrow} />
+                </button>
             </div>
         </div>
+
     )
 }
 

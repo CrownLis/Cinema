@@ -8,7 +8,6 @@ const Layouts:FC = () => {
     return (
         <div>
             <Header/>
-            <Sidebar/>
             <Outlet/>
         </div>
     )

@@ -1,18 +1,22 @@
 import { getFilteredList } from './asyncAction';
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IFilmList } from '../../types/types'
 
 export interface IFilteredListState {
   list: IFilmList | null
+  currentPage: number
   loading: boolean
-  error:string
+  error: string
+  filterParameters: { countries?: number, genres?: number, ratingFrom?: number, ratingTo?: number, yearFrom?: number, yearTo?: number }
 }
 
 const initialState: IFilteredListState = {
   list: null,
+  currentPage: 1,
   loading: false,
-  error:''
+  error: '',
+  filterParameters: { countries: 1, genres: 1, ratingFrom: 0, ratingTo: 10, yearFrom: 1000, yearTo: 3000 }
 };
 
 
@@ -20,7 +24,14 @@ const filteredListSlice = createSlice({
   name: 'filteredListSlice',
   initialState,
   reducers: {
-
+    setCurrentPage(state, action: PayloadAction<number>) {
+      state.currentPage = action.payload;
+    },
+    setFilterParameters(state, action: PayloadAction<
+      { countries?: number, genres?: number, ratingFrom?: number, ratingTo?: number, yearFrom?: number, yearTo?: number }
+    >) {
+      state.filterParameters = action.payload;
+    },
   },
 
   extraReducers: (builder) => {
@@ -37,4 +48,6 @@ const filteredListSlice = createSlice({
   }
 });
 
+
+export const { setCurrentPage, setFilterParameters } = filteredListSlice.actions
 export default filteredListSlice.reducer

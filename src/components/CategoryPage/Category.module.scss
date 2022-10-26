@@ -1,19 +1,99 @@
 .category {
     background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    nav {
+        ul {
+            button {
+                margin:2px;
+                border:2px solid black;
+                &.active {
+                    border:2px solid red
+                }
+                &:hover {
+                    box-shadow: 2px 2px 4px;
+                    border:2px solid lightgray
+                }
+                .page {
+                    background-color: transparent;
+                    border:0
+                }
+            }
+        }
+    }
 
     .category__wrapper {
         display: flex;
         flex-direction: row;
-        background-color: gray;
+        background-color: rgb(28 28 28 / 40%);
+        margin: 0 200px;
+        padding:20px 0px;
 
-        .wrapper__category {
-            display: flex;
-            flex-direction: column;
-        }
 
-        .wrapper__list {
-            display: flex;
-            flex-direction: column;
+        .wrapper__item {
+            text-align: center;
+            padding: 20px;
+            color: #ffffffc7;
+            border: 5px solid #8d8d8dc7;
+
+
+
+            &:hover {
+                transform: (translate(4px, 4px));
+                box-shadow: 2px 2px 4px;
+            }
+
+            .item__title {
+                height: 80px;
+
+                h3 {
+                    font-family: "Open-Sans";
+                    font-weight: 700;
+                    font-size: 18px;
+                }
+            }
+
+            .item__image {
+                position: relative;
+                border: 1px solid #8d8d8dc7;
+
+                &:before {
+                    content: "";
+                    display: block;
+                    width: 100%;
+                    height: 0;
+                    padding-top: 152.15%;
+                }
+
+                img {
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: (translate(-50%, -50%));
+                    width: 100%;
+                    height: 100%;
+                }
+            }
         }
+    }
+}
+
+@media screen and (max-width:998px) {
+    .category__wrapper {
+        margin: 0 100px;
+    }
+}
+
+@media screen and (max-width:667px) {
+    .category__wrapper {
+        margin: 0 40px;
+    }
+}
+
+@media screen and (max-width:565px) {
+    .category__wrapper {
+        margin: 0 20px;
     }
 }
