@@ -4,38 +4,43 @@ import { Navigation, A11y, Autoplay } from 'swiper';
 import 'swiper/css';
 import 'swiper/css/lazy'
 import 'swiper/css/autoplay'
-import { getPremiersData, getPremierLoading } from '../../../store/premiers/selectors'
-import { useAppSelector } from "../../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 
 import style from './CarouselSmall2.module.scss'
+import { getFilteredListData, getFilteredListLoading } from "@/store/filteredList/selectors";
+import { NavLink } from "react-router-dom";
+import { setFilterParameters } from "@/store/filteredList/filteredListSlice";
 
 const CarouselSmall2: FC = () => {
 
-    const isLoading = useAppSelector(getPremierLoading)
-    const films = useAppSelector(getPremiersData)
+    const dispatch = useAppDispatch()
+    const isLoading = useAppSelector(getFilteredListLoading)
+    const films = useAppSelector(getFilteredListData)
 
     return (
-        isLoading? null:
-        <div className={style.carousel}>
-            <h2 className={style.carousel__title}>Наши хиты</h2>
-            <Swiper
-                lazy
-                loop={true}
-                modules={[A11y, Navigation, Autoplay]}
-                navigation
-                pagination={{ clickable: true }}
-                scrollbar={{ draggable: true }}
-                spaceBetween={10}
-                slidesPerView={11}
-                centeredSlides={true}
-                onSlideChange={() => console.log('slide change')}
-                onSwiper={(swiper) => console.log(swiper)}
-            >
-                {films?.items.map(film =>
-                    <SwiperSlide className={style.smallSlide}><img className={style.poster} src={film.posterUrl} /></SwiperSlide>
-                )}
-            </Swiper>
-        </div>
+        isLoading ? null :
+            <div className={style.carousel}>
+                <NavLink to='/category'><h2 className={style.carousel__title} onClick={e => dispatch(setFilterParameters({genres:1}))}>Триллеры</h2></NavLink>
+                <Swiper
+                    lazy
+                    loop={true}
+                    modules={[A11y, Navigation, Autoplay]}
+                    navigation
+                    pagination={{ clickable: true }}
+                    scrollbar={{ draggable: true }}
+                    spaceBetween={10}
+                    slidesPerView={11}
+                    centeredSlides={true}
+                    onSlideChange={() => console.log('slide change')}
+                    onSwiper={(swiper) => console.log(swiper)}
+                >
+                    {films?.items.map(film =>
+                        <SwiperSlide className={style.smallSlide}>
+                            <NavLink to={`/film/${film.kinopoiskId}`}><img className={style.poster} src={film.posterUrl} /></NavLink>
+                        </SwiperSlide>
+                    )}
+                </Swiper>
+            </div>
     )
 }
 

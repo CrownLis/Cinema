@@ -53,3 +53,21 @@ export const fetchFilteredList = async (
     }
   })
 }
+
+export const fetchFilmInfo = async (
+  id: number
+) => {
+  return await CinemaAPI.get(`/${id}`)
+}
+
+export const fetchFilmInfoSeasons = async (
+  id: number
+) => {
+  return await CinemaAPI.get(`/${id}/seasons`)
+}
+
+export const fetchFilmInfoTrailers = async (
+  id: number
+) => {
+  return await CinemaAPI.get(`/${id}/videos`)
+}

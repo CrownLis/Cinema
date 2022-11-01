@@ -1,3 +1,4 @@
+import { getFilteredList } from "@/store/filteredList/asyncAction";
 import { useAppDispatch } from "@/store/hooks";
 import { getPremiers } from "@/store/premiers/asyncAction";
 import React, { FC, useEffect } from "react";
@@ -11,6 +12,7 @@ const HomePage:FC = () => {
 
     useEffect(() => {
         dispatch(getPremiers([2022, 'APRIL']))
+        dispatch(getFilteredList({genres:2}))
     },[])
 
     return (

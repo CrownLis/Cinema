@@ -8,6 +8,7 @@ import style from './Carousel.module.scss'
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import { getTopFilms } from "@/store/topFilms/asyncAction";
 import { getTopFilmsData, getTopFilmsLoading } from "@/store/topFilms/selectors";
+import { NavLink } from "react-router-dom";
 
 const Carousel: FC = () => {
 
@@ -37,7 +38,7 @@ const Carousel: FC = () => {
                     onSwiper={(swiper) => console.log(swiper)}
                 >
                     {films?.films.map(film =>
-                        <SwiperSlide ><img className={style.poster} src={film.posterUrl} /></SwiperSlide>
+                        <SwiperSlide ><NavLink to={`/film/${film.filmId}`}><img className={style.poster} src={film.posterUrl} /></NavLink></SwiperSlide>
                     )}
                 </Swiper>
             </div>

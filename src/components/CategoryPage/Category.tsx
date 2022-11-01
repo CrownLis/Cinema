@@ -4,6 +4,7 @@ import { setCurrentPage } from "@/store/filteredList/filteredListSlice";
 import { getFilteredListData, getFilteredListLoading, getFilteredListPage, getFilterParameters } from "@/store/filteredList/selectors";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import React, { FC, useEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
 import Sidebar from "../Sidebar";
 
 import style from './Category.module.scss'
@@ -38,14 +39,9 @@ const Category: FC = () => {
                 pages.push(i)
             }
         }
-        console.log('end')
     }
 
     generatePagination(pages, itemsOnPage, currentPage)
-
-const setPage = (page:number) => {
-    dispatch(setCurrentPage(page))
-}
 
     useEffect(() => {
         dispatch(getCategories())
@@ -60,20 +56,22 @@ const setPage = (page:number) => {
             <div className={style.category}>
                 <Sidebar />
                 <div className={`${style.category__wrapper} row gy-3`}>
-                    {filmList?.items.map(item => <div className={`col-lg-3 col-md-4 col-sm-6 col-xs-12`}>
-                        <div className={style.wrapper__item}>
-                            <div className={style.item__image}>
-                                <img src={item.posterUrl}></img>
+                    {filmList?.items.map(item => <div className={`col-xl-3 col-lg-4 col-md-6 col-sm-12`}>
+                        <NavLink to={`/film/${item.kinopoiskId}`}>
+                            <div className={style.wrapper__item}>
+                                <div className={style.item__image}>
+                                    <img src={item.posterUrl}></img>
+                                </div>
+                                <div className={style.item__title}>
+                                    <h3>{item.nameRu}</h3>
+                                </div>
                             </div>
-                            <div className={style.item__title}>
-                                <h3>{item.nameRu}</h3>
-                            </div>
-                        </div>
+                        </NavLink>
                     </div>)}
                 </div>
                 <nav aria-label="Page navigation example">
                     <ul className="pagination">
-                        {pages.map((page, index) => <button className={currentPage == page? `${style.active}` : '' }><li className={`${style.page} page-link`} onClick={e => dispatch(setCurrentPage(page))}>{page}</li></button>)}
+                        {pages.map((page, index) => <button className={currentPage == page ? `${style.active}` : ''}><li className={`${style.page} page-link`} onClick={e => dispatch(setCurrentPage(page))}>{page}</li></button>)}
                     </ul>
                 </nav>
             </div>

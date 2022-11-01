@@ -3,13 +3,15 @@ import premierSlice from './premiers/premierSlice'
 import categoriesSlice from './categories/categoriesSlice'
 import filteredListSlice from './filteredList/filteredListSlice'
 import topFilmsSlice from "./topFilms/topFilmsSlice";
+import filmInfoSlice from './filmInfo/filmInfo'
 
 
 const rootReducer = combineReducers({
 premiers:premierSlice,
 category:categoriesSlice,
 filteredList:filteredListSlice,
-topFilms:topFilmsSlice
+topFilms:topFilmsSlice,
+filmInfo:filmInfoSlice
 })
 
 const store = configureStore({

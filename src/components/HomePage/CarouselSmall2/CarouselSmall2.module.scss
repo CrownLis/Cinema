@@ -2,6 +2,10 @@
     padding: 20px 20px;
     background-color: rgb(29, 29, 29);
 
+    a {
+        text-decoration: none;
+    }
+
     .carousel__title {
         text-align: center;
         font-size: 32px;
@@ -11,16 +15,6 @@
         font-weight: 700;
     }
 }
-
-// .carousel::after {
-//     content:'';
-//     position: absolute;
-//     top:0;
-//     right:0;
-//     bottom:0;
-//     left:0;
-//     background-image: url(./../../assets/light.png);
-// }
 
 .poster {
     max-height: 200px;

@@ -1,0 +1,38 @@
+.footer {
+
+    background-color: black;
+    color: white;
+
+    .footer__wrapper {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 100px;
+        padding: 20px;
+
+.footer__info {
+    text-decoration: none;
+    color: white;
+    font-family: 'Open-Sans';
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 24px;
+}
+
+        .footer__links {
+            a {
+                padding: 0 20px;
+                text-decoration: none;
+                color: lightgray;
+                text-decoration: none;
+                color: white;
+                font-family: 'Open-Sans';
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                &:hover {
+                    color:rgba(211, 211, 211, 0.61)
+                }
+            }
+        }
+    }
+}

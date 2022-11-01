@@ -1,5 +1,5 @@
 .header {
-max-height: 160px;
+    max-height: 160px;
     background-color: #000;
     color: white;
 
@@ -13,6 +13,10 @@ max-height: 160px;
         .navbar__links {
             display: flex;
             align-items: center;
+
+            .links__text {
+                margin: auto 0;
+            }
 
             li {
                 display: inline-block;
@@ -124,12 +128,14 @@ max-height: 160px;
                     }
                 }
             }
+
             .navbar__input {
                 input {
                     outline: none;
-                    color:white
+                    color: white
                 }
             }
+
             .navbar__buttons {
                 button {
                     margin: 0 5px;

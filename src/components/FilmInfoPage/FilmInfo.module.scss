@@ -1,0 +1,65 @@
+.film {
+    background-color: rgba(0, 0, 0, 0.92);
+
+    .film__wrapper {
+        display: flex;
+        flex-direction: column;
+        margin: 0 200px;
+        padding: 100px 0;
+
+        .film__title {
+            text-align: center;
+            color: white;
+            font-size: 32px;
+            padding: 20px;
+        }
+
+        .film__content {
+            display: flex;
+            gap: 60px;
+
+            .film__poster {
+                max-width: 30%;
+
+                img {
+                    width: 100%;
+                    border: 2px solid rgba(175, 175, 175, 0.274);
+                }
+
+                .film__trailers {
+                    .film__trailer {
+                        margin: 10px;
+                        max-width: 120px;
+                        &:hover {
+                            background-image: url(./../../assets/play.png);
+                            z-index: 10;
+                            background-size: 100%;
+                            background-position: center;
+                            background-repeat: no-repeat;
+                            z-index: 10;
+                        }
+                    }
+
+                }
+            }
+
+            .film__info {
+                display: flex;
+                flex-direction: column;
+                max-width: 60%;
+
+                h3 {
+                    font-size: 24px;
+                    color: white;
+                }
+
+                span {
+                    padding: 5px;
+                    font-size: 16px;
+                    color: white
+                }
+            }
+        }
+
+    }
+}
