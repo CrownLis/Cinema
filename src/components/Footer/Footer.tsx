@@ -12,7 +12,7 @@ const Footer: FC = () => {
                 <nav className={style.footer__links}>
                     <a href='index'>Наш магазин</a>
                     <a href='index'>Наша социальная сеть</a>
-                    <a href='index'>бла бла</a>
+                    <a href='index'>Заказать рекламу</a>
                 </nav>
                 <a className={style.footer__info}>Проект компании XXX</a>
             </div>

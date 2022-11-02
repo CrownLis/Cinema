@@ -5,6 +5,7 @@ import { getFilteredListData, getFilteredListLoading, getFilteredListPage, getFi
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 import React, { FC, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
+import Loader from "../Loader";
 import Sidebar from "../Sidebar";
 
 import style from './Category.module.scss'
@@ -52,7 +53,7 @@ const Category: FC = () => {
     }, [currentPage])
 
     return (
-        loading ? null :
+        loading ? <Loader/> :
             <div className={style.category}>
                 <Sidebar />
                 <div className={`${style.category__wrapper} row gy-3`}>

@@ -30,6 +30,7 @@
                     .film__trailer {
                         margin: 10px;
                         max-width: 120px;
+
                         &:hover {
                             background-image: url(./../../assets/play.png);
                             z-index: 10;
@@ -61,5 +62,49 @@
             }
         }
 
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .film {
+        .film__wrapper {
+            margin: 0 120px;
+        }
+    }
+
+}
+
+@media screen and (max-width:992px) {
+    .film {
+        .film__wrapper {
+            margin: 0 80px;
+        }
+    }
+
+}
+
+@media screen and (max-width:768px) {
+    .film {
+        .film__wrapper {
+            margin: 0 40px;
+            .film__content {
+                flex-direction: column;
+                .film__poster {
+                    margin: 0 auto;
+                    max-width:60%;
+                }
+                .film__info {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:565px) {
+    .film {
+        .film__wrapper {
+            margin: 0 20px;
+        }
     }
 }
