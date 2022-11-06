@@ -12,7 +12,7 @@ import { NavLink } from "react-router-dom";
 
 const Carousel: FC = () => {
 
-    const filter = 'TOP_100_POPULAR_FILMS'
+    const filter = 'TOP_250_BEST_FILMS'
     const dispatch = useAppDispatch()
     const isLoading = useAppSelector(getTopFilmsLoading)
     const films = useAppSelector(getTopFilmsData)

@@ -6,7 +6,7 @@
 
     nav {
         ul {
-            button {
+            .page {
                 border-radius: 30%;
                 background-color: #64646459;
                 margin: 2px;
@@ -17,14 +17,14 @@
                 }
 
                 &:hover {
-                    box-shadow: 2px 2px 4px;
+                   cursor: pointer;
                     border: 2px solid lightgray;
                 }
 
-                .page {
+                button {
+                    border:0;
                     background-color: transparent;
-                    border: 0;
-                    color: white
+                    color:white;    
                 }
             }
         }

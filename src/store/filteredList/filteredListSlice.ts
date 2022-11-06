@@ -3,12 +3,21 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 import { IFilmList } from '../../types/types'
 
+interface IFilterParams {
+  countries?: number, 
+  genres?: number, 
+  ratingFrom?: number, 
+  ratingTo?: number, 
+  yearFrom?: number, 
+  yearTo?: number, 
+  keyword?:string
+}
 export interface IFilteredListState {
   list: IFilmList | null
   currentPage: number
   loading: boolean
   error: string
-  filterParameters: { countries?: number, genres?: number, ratingFrom?: number, ratingTo?: number, yearFrom?: number, yearTo?: number }
+  filterParameters: IFilterParams
 }
 
 const initialState: IFilteredListState = {
@@ -28,7 +37,7 @@ const filteredListSlice = createSlice({
       state.currentPage = action.payload;
     },
     setFilterParameters(state, action: PayloadAction<
-      { countries?: number, genres?: number, ratingFrom?: number, ratingTo?: number, yearFrom?: number, yearTo?: number }
+     IFilterParams
     >) {
       state.filterParameters = action.payload;
     },

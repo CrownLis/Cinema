@@ -41,7 +41,7 @@ const FilmInfo: FC = () => {
 
     return (
         Loading ? <Loader/> :
-            <div className={style.film}>
+            <main className={style.film}>
                 <div className={style.film__wrapper}>
                     <h3 className={style.film__title}>{data?.info.nameRu}</h3>
                     <div className={style.film__content}>
@@ -70,7 +70,7 @@ const FilmInfo: FC = () => {
                         </div>
                     </div>
                 </div>
-            </div>
+            </main>
 
     )
 }

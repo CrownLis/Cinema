@@ -1,13 +1,13 @@
 import { RootState } from './../store';
 
 export const getFilmInfoData = (state: RootState) => {
-  return state.rootReducer.filmInfo.data
+  return state.filmInfo.data
 };
 
 export const getFilteredFilms = (state: RootState) => {
-  return state.rootReducer.filmInfo.data?.trailers.items.filter((item,index) => item.site === 'YOUTUBE' && index < 4 )
+  return state.filmInfo.data?.trailers.items.filter((item,index) => item.site === 'YOUTUBE' && index < 4 )
 };
 
 export const getFilmInfoLoading = (state: RootState) => {
-  return state.rootReducer.filmInfo.loading
+  return state.filmInfo.loading
 }

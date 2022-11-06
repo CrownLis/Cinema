@@ -9,8 +9,6 @@ const CinemaAPI = axios.create({
 }
 );
 
-
-
 export const fetchPremiers = async (year: number, month: string) => {
   return await CinemaAPI.get(`/premieres?year=${year}&month=${month}`)
 }
@@ -38,6 +36,7 @@ export const fetchFilteredList = async (
   ratingTo?: any,
   yearFrom?: any,
   yearTo?: any,
+  keyword?:string,
   page?: number) => {
   return await CinemaAPI.get('/', {
     params: {
@@ -49,6 +48,7 @@ export const fetchFilteredList = async (
       ratingTo,
       yearFrom,
       yearTo,
+      keyword,
       page
     }
   })

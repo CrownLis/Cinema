@@ -1,13 +1,14 @@
 import React, { FC } from "react";
 
 import Header from "@/components/Header";
-import Sidebar from "@/components/Sidebar";
 import { Outlet } from "react-router-dom";
 import Footer from "@/components/Footer";
 
+import style from './Layouts.module.scss'
+
 const Layouts:FC = () => {
     return (
-        <div>
+        <div className={style.content}>
             <Header/>
             <Outlet/>
             <Footer/>

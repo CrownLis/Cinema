@@ -16,7 +16,7 @@ const Sidebar: FC = () => {
     const [isOpen, setIsOpen] = useState(`${style.sidebar__close}`)
     const [openSidebar, setOpenSidebar] = useState(false)
 
-    const onSubmit = async (value: { countries: number,genres:number, ratingFrom: number, ratingTo: number, yearFrom: number, yearTo: number }) => {
+    const onSubmit = async (value: { countries: number, genres: number, ratingFrom: number, ratingTo: number, yearFrom: number, yearTo: number }) => {
         dispatch(setCurrentPage(1))
         dispatch(setFilterParameters(value))
         dispatch(getFilteredList(value))
@@ -49,7 +49,7 @@ const Sidebar: FC = () => {
                                     <option>
 
                                     </option>
-                                    {category?.countries.map(country => <option  value={country.id}>{country.country}</option>)}
+                                    {category?.countries.map(country => <option value={country.id}>{country.country}</option>)}
                                 </Field>
                             </div>
                             <div className={style.form__genre}>

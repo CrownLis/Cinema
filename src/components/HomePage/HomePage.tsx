@@ -16,11 +16,11 @@ const HomePage:FC = () => {
     },[])
 
     return (
-        <div>
+        <main>
             <Carousel/>
             <CarouselSmall/>
             <CarouselSmall2/>
-        </div>
+        </main>
     )
 }
 

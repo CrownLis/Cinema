@@ -22,6 +22,7 @@ const CarouselSmall: FC = () => {
             <div className={style.carousel}>
                 <h2 className={style.carousel__title}>Премьеры</h2>
                 <Swiper
+                    className={style.swiper}
                     lazy
                     loop={true}
                     modules={[A11y, Navigation, Autoplay]}

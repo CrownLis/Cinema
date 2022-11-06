@@ -41,6 +41,7 @@
                 select {
                     max-width: 240px;
                     outline: none;
+                    width:100%
                 }
             }
 
@@ -57,6 +58,7 @@
                 select {
                     max-width: 240px;
                     outline: none;
+                    width:100%
                 }
             }
 
@@ -115,6 +117,10 @@
             .form__button {
                 display: flex;
                 justify-content: space-around;
+                button {
+                    border:2px solid white;
+                    border-radius: 2px;
+                }
             }
         }
 
@@ -151,5 +157,304 @@
             }
         }
 
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .sidebar {
+        .sidebar__wrapper {
+    width: 260px;
+            .sidebar__form {
+                .form__country {
+                    label {
+                    }
+                    select {
+                        width:90%;
+                        font-size: 18px;
+                    }
+                }
+    
+                .form__genre {
+                    label {
+                    }
+                    select {
+                        width:90%;
+                        font-size: 18px;
+                    }
+                }
+    
+                .form__sort {
+                    label {
+                    }
+                    select {
+                        width:90%;
+                        font-size: 18px;
+                    }
+                }
+    
+                .form__year {
+                    label {
+                    }
+    
+                    span {
+                    }
+    
+                    input {
+                        width:90%;
+                        font-size: 18px;
+                    }
+                }
+    
+                .form__rating {
+                    label {
+                    }
+                    span {
+                    }
+                    input {
+                        width:90%;
+                        font-size: 18px;
+                    }
+                }
+                .form__button {
+                    button {
+                        font-size: 18px;
+                    }
+                }
+            }
+    
+            .sidebar__button {
+                left: 260px;
+                img {
+                }
+            }
+        }
+    
+        &.sidebar__close {
+            left:-260px;
+            .sidebar__wrapper {
+                .sidebar__button {
+                    img {
+                    }
+                }
+            }
+    
+        }
+    }
+}
+
+@media screen and (max-width:992px) {
+    .sidebar {
+        .sidebar__wrapper {
+    width: 220px;
+            .sidebar__form {
+                .form__country {
+                    label {
+                    }
+                    select {
+                        font-size: 16px;
+                    }
+                }
+    
+                .form__genre {
+                    label {
+                    }
+                    select {
+                        font-size: 16px;
+                    }
+                }
+    
+                .form__sort {
+                    label {
+                    }
+                    select {
+                        font-size: 16px;
+                    }
+                }
+    
+                .form__year {
+                    label {
+                    }
+    
+                    span {
+                    }
+    
+                    input {
+                        font-size: 16px;
+                    }
+                }
+    
+                .form__rating {
+                    label {
+                    }
+                    span {
+                    }
+                    input {
+                        font-size: 16px;
+                    }
+                }
+                .form__button {
+                    button {
+                        font-size: 16px;
+                    }
+                }
+            }
+    
+            .sidebar__button {
+                left:220px;
+                img {
+                }
+            }
+        }
+    
+        &.sidebar__close {
+            left:-220px;
+            .sidebar__wrapper {
+                .sidebar__button {
+                    img {
+                    }
+                }
+            }
+    
+        }
+    }
+}
+
+@media screen and (max-width:768px) {
+    .sidebar {
+        .sidebar__wrapper {
+    width: 200px;
+            .sidebar__form {
+                .form__country {
+                    label {
+                    }
+                    select {
+                    }
+                }
+    
+                .form__genre {
+                    label {
+                    }
+                    select {
+                    }
+                }
+    
+                .form__sort {
+                    label {
+                    }
+                    select {
+                    }
+                }
+    
+                .form__year {
+                    label {
+                    }
+    
+                    span {
+                    }
+    
+                    input {
+                    }
+                }
+    
+                .form__rating {
+                    label {
+                    }
+                    span {
+                    }
+                    input {
+                    }
+                }
+                .form__button {
+                }
+            }
+    
+            .sidebar__button {
+                left:200px;
+                img {
+                }
+            }
+        }
+    
+        &.sidebar__close {
+            left:-200px;
+            .sidebar__wrapper {
+                .sidebar__button {
+                    img {
+                    }
+                }
+            }
+    
+        }
+    }
+}
+
+@media screen and (max-width:565px) {
+    .sidebar {
+        .sidebar__wrapper {
+    width: 160px;
+            .sidebar__form {
+                .form__country {
+                    label {
+                    }
+                    select {
+                    }
+                }
+    
+                .form__genre {
+                    label {
+                    }
+                    select {
+                    }
+                }
+    
+                .form__sort {
+                    label {
+                    }
+                    select {
+                    }
+                }
+    
+                .form__year {
+                    label {
+                    }
+    
+                    span {
+                    }
+    
+                    input {
+                        width: 40%;
+                    }
+                }
+    
+                .form__rating {
+                    label {
+                    }
+                    span {
+                    }
+                    input {
+                        width: 30%;
+                    }
+                }
+                .form__button {
+                }
+            }
+    
+            .sidebar__button {
+                left:160px;
+                img {
+                }
+            }
+        }
+    
+        &.sidebar__close {
+            left:-160px;
+            .sidebar__wrapper {
+                .sidebar__button {
+                    img {
+                    }
+                }
+            }
+    
+        }
     }
 }

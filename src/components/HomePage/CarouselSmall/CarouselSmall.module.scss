@@ -12,7 +12,10 @@
     }
     :global(.swiper-slide).smallSlide {
         transform: scale(1);
+        min-height: 100%;
+        height: auto;
     }
+
 }
 
 // .carousel::after {
@@ -26,7 +29,6 @@
 // }
 
 .poster {
-    max-height: 200px;
-    max-width: 160px;
+    height: 100%;
     width: 100%
 }

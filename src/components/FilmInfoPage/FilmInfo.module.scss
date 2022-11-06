@@ -1,11 +1,12 @@
 .film {
-    background-color: rgba(0, 0, 0, 0.92);
+    background-color: black;
 
     .film__wrapper {
         display: flex;
         flex-direction: column;
         margin: 0 200px;
-        padding: 100px 0;
+        padding: 100px 20px;
+        background-color: rgba(29, 29, 29, 0.767);
 
         .film__title {
             text-align: center;
@@ -28,16 +29,24 @@
 
                 .film__trailers {
                     .film__trailer {
+                        position: relative;
                         margin: 10px;
                         max-width: 120px;
 
                         &:hover {
+                            cursor: pointer;
+                        }
+
+                        &:hover::after {
+                            content: 'Запустить';
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            right: 0;
                             background-image: url(./../../assets/play.png);
-                            z-index: 10;
-                            background-size: 100%;
+                            background-size: 90%;
                             background-position: center;
                             background-repeat: no-repeat;
-                            z-index: 10;
                         }
                     }
 
@@ -87,12 +96,15 @@
     .film {
         .film__wrapper {
             margin: 0 40px;
+
             .film__content {
                 flex-direction: column;
+
                 .film__poster {
                     margin: 0 auto;
-                    max-width:60%;
+                    max-width: 60%;
                 }
+
                 .film__info {
                     max-width: 100%;
                 }

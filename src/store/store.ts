@@ -15,9 +15,8 @@ filmInfo:filmInfoSlice
 })
 
 const store = configureStore({
-    reducer: {
+    reducer:
       rootReducer
-    }
   });
 
   
